@@ -32,16 +32,11 @@ class TelaDetalheHabito extends StatelessWidget {
               width: double.infinity,
               child: FilledButton.icon(
                 onPressed: () {
-                  // Remove do estado compartilhado e volta pra tela anterior
-                  context.read<HabitosStore>().remover(habito);
+                  context.read<HabitosStore>().priorizar(habito);
                   Navigator.pop(context);
                 },
-                icon: const Icon(Icons.delete),
-                label: const Text('Excluir Hábito'),
-                style: FilledButton.styleFrom(
-                  backgroundColor: Theme.of(context).colorScheme.error,
-                  foregroundColor: Theme.of(context).colorScheme.onError,
-                ),
+                icon: const Icon(Icons.arrow_upward),
+                label: const Text('Priorizar Hábito'),
               ),
             ),
           ],
