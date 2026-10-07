@@ -18,8 +18,12 @@ class HabitosStore extends ChangeNotifier {
     notifyListeners();
   }
 
-  void remover(Habito h) {
-    _habitos.remove(h);
-    notifyListeners();
+  void priorizar(Habito h) {
+    final index = _habitos.indexOf(h);
+    if (index > 0) {
+      _habitos.removeAt(index);
+      _habitos.insert(0, h);
+      notifyListeners();
+    }
   }
 }
